@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
-using CleanArchCqrs.Application.Category.Queries;
+using CleanArchCqrs.Application.Cqrs.Category.Queries;
 using CleanArchCqrs.Application.Dtos;
-using CleanArchCqrs.Application.Product.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
