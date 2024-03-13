@@ -5,7 +5,7 @@ VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchCqrs.Domain", "Src\CleanArchCqrs.Domain\CleanArchCqrs.Domain.csproj", "{77E73C09-C6D4-4D81-9DF3-44A900818E27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchCqrs.Application", "src\CleanArchCqrs.Application\CleanArchCqrs.Application.csproj", "{50154B5E-138F-41C9-ACA3-2D6292821F3B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchCqrs.Application", "Src\CleanArchCqrs.Application\CleanArchCqrs.Application.csproj", "{50154B5E-138F-41C9-ACA3-2D6292821F3B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchCqrs.Infra.Data", "Src\CleanArchCqrs.Infra.Data\CleanArchCqrs.Infra.Data.csproj", "{755EC31D-9C16-4F05-9C8B-7D4B4E0706E2}"
 EndProject
