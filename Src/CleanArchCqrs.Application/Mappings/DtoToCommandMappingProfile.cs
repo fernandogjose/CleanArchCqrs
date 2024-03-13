@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
-using CleanArchCqrs.Application.Category.Commands;
+using CleanArchCqrs.Application.Cqrs.Category.Commands;
+using CleanArchCqrs.Application.Cqrs.Category.Queries;
+using CleanArchCqrs.Application.Cqrs.Product.Commands;
+using CleanArchCqrs.Application.Cqrs.Product.Queries;
 using CleanArchCqrs.Application.Dtos;
-using CleanArchCqrs.Application.Product.Commands;
-using CleanArchCqrs.Application.Product.Queries;
 
 namespace CleanArchCqrs.Application.Mappings
 {

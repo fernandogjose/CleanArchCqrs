@@ -1,7 +1,7 @@
 ﻿using CleanArchCqrs.Application.Dtos;
 using MediatR;
 
-namespace CleanArchCqrs.Application.Product.Queries
+namespace CleanArchCqrs.Application.Cqrs.Product.Queries
 {
     public class ProductGetByIdQuery : IRequest<ProductDto>
     {

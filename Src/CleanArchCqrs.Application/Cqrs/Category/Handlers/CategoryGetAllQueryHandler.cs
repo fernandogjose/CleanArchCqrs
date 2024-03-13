@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using CleanArchCqrs.Application.Dtos;
-using CleanArchCqrs.Application.Category.Queries;
 using CleanArchCqrs.Domain.Interfaces.DataRepositories;
 using MediatR;
+using CleanArchCqrs.Application.Cqrs.Category.Queries;
 
-namespace CleanArchCqrs.Application.Category.Handlers
+namespace CleanArchCqrs.Application.Cqrs.Category.Handlers
 {
     public class CategoryGetAllQueryHandler : IRequestHandler<CategoryGetAllQuery, IEnumerable<CategoryDto>>
     {

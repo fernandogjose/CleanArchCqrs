@@ -1,4 +1,4 @@
-﻿namespace CleanArchCqrs.Application.Category.Commands
+﻿namespace CleanArchCqrs.Application.Cqrs.Category.Commands
 {
     public class CategoryCreateCommand : CategoryCommand
     {

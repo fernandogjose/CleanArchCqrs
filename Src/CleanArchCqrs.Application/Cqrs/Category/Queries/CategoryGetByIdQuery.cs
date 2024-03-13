@@ -1,7 +1,7 @@
 ﻿using CleanArchCqrs.Application.Dtos;
 using MediatR;
 
-namespace CleanArchCqrs.Application.Product.Queries
+namespace CleanArchCqrs.Application.Cqrs.Category.Queries
 {
     public class CategoryGetByIdQuery : IRequest<CategoryDto>
     {

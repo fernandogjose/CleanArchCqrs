@@ -1,7 +1,7 @@
 ﻿using CleanArchCqrs.Application.Dtos;
 using MediatR;
 
-namespace CleanArchCqrs.Application.Product.Commands
+namespace CleanArchCqrs.Application.Cqrs.Product.Commands
 {
     public abstract class ProductCommand : IRequest<ProductDto>
     {

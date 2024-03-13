@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
+using CleanArchCqrs.Application.Cqrs.Product.Queries;
 using CleanArchCqrs.Application.Dtos;
-using CleanArchCqrs.Application.Product.Queries;
 using CleanArchCqrs.Domain.Interfaces.DataRepositories;
 using MediatR;
 
-namespace CleanArchCqrs.Application.Product.Handlers
+namespace CleanArchCqrs.Application.Cqrs.Product.Handlers
 {
     public class ProductGetAllQueryHandler : IRequestHandler<ProductGetAllQuery, IEnumerable<ProductDto>>
     {
