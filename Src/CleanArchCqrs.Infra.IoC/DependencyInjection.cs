@@ -1,9 +1,10 @@
-﻿using CleanArchCqrs.Domain.Interfaces.DataRepositories;
+﻿using CleanArchCqrs.Application.Mappings;
+using CleanArchCqrs.Domain.Interfaces.DataRepositories;
 using CleanArchCqrs.Infra.Data.Context;
 using CleanArchCqrs.Infra.Data.Repositories;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchCqrs.Infra.IoC
 {
@@ -20,6 +21,17 @@ namespace CleanArchCqrs.Infra.IoC
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
+
+            return services;
+        }
+
+        public static IServiceCollection AddApplication(this IServiceCollection services)
+        {
+            services.AddAutoMapper(typeof(DtoToCommandMappingProfile));
+            services.AddAutoMapper(typeof(EntityToDtoMappingProfile));
+
+            var handlers = AppDomain.CurrentDomain.Load("CleanArchCqrs.Application");
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(handlers));
 
             return services;
         }
