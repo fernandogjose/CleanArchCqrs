@@ -1,10 +1,9 @@
-﻿using CleanArchCqrs.Application.Dtos;
-using MediatR;
-
-namespace CleanArchCqrs.Application.Cqrs.Product.Commands
+﻿namespace CleanArchCqrs.Application.Dtos
 {
-    public abstract class ProductCommand : IRequest<ProductDto>
+    public class ProductGetAllResponse
     {
+        public int Id { get; set; }
+
         public string Name { get; set; } = string.Empty;
 
         public string Description { get; set; } = string.Empty;

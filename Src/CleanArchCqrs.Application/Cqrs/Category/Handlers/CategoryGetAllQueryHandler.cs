@@ -6,7 +6,7 @@ using CleanArchCqrs.Application.Cqrs.Category.Queries;
 
 namespace CleanArchCqrs.Application.Cqrs.Category.Handlers
 {
-    public class CategoryGetAllQueryHandler : IRequestHandler<CategoryGetAllQuery, IEnumerable<CategoryDto>>
+    public class CategoryGetAllQueryHandler : IRequestHandler<CategoryGetAllQuery, IEnumerable<Dtos.Category>>
     {
         private readonly ICategoryRepository _categoryRepository;
 
@@ -18,10 +18,10 @@ namespace CleanArchCqrs.Application.Cqrs.Category.Handlers
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<CategoryDto>> Handle(CategoryGetAllQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<Dtos.Category>> Handle(CategoryGetAllQuery request, CancellationToken cancellationToken)
         {
             var categorysEntityResponse = await _categoryRepository.GetAllAsync();
-            var categorysDtoResponse = _mapper.Map<IEnumerable<CategoryDto>>(categorysEntityResponse);
+            var categorysDtoResponse = _mapper.Map<IEnumerable<Dtos.Category>>(categorysEntityResponse);
             return categorysDtoResponse;
         }
     }

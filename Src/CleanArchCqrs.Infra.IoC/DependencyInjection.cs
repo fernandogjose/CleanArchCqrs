@@ -1,5 +1,7 @@
 ﻿using CleanArchCqrs.Application.Mappings;
 using CleanArchCqrs.Domain.Interfaces.DataRepositories;
+using CleanArchCqrs.Domain.Interfaces.DomainValidations;
+using CleanArchCqrs.Domain.Validations;
 using CleanArchCqrs.Infra.Data.Context;
 using CleanArchCqrs.Infra.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -32,6 +34,13 @@ namespace CleanArchCqrs.Infra.IoC
 
             var handlers = AppDomain.CurrentDomain.Load("CleanArchCqrs.Application");
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(handlers));
+
+            return services;
+        }
+
+        public static IServiceCollection AddDomain(this IServiceCollection services)
+        {
+            services.AddScoped<IProductValidation, ProductValidation>();
 
             return services;
         }

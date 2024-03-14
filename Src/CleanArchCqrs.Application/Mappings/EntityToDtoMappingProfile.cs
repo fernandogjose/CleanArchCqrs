@@ -7,8 +7,11 @@ namespace CleanArchCqrs.Application.Mappings
     {
         public EntityToDtoMappingProfile()
         {
-            CreateMap<Domain.Entities.Product, ProductDto>();
-            CreateMap<Domain.Entities.Category, CategoryDto>();
+            CreateMap<Domain.Entities.Product, ProductGetAllResponse>().ReverseMap();
+            CreateMap<Domain.Entities.Product, ProductGetByIdResponse>().ReverseMap();
+            CreateMap<Domain.Entities.Product, ProductCreateResponse>().ReverseMap();
+
+            CreateMap<Domain.Entities.Category, Category>().ReverseMap();
         }
     }
 }

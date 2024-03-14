@@ -3,7 +3,8 @@ using CleanArchCqrs.Infra.IoC;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddInfrastructure(builder.Configuration).AddDomain();
+builder.Services.AddDomain();
 builder.Services.AddApplication();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

@@ -1,4 +1,4 @@
-﻿using CleanArchCqrs.Domain.Validations;
+﻿using CleanArchCqrs.Domain.Exceptions;
 
 namespace CleanArchCqrs.Domain.Entities
 {
@@ -26,13 +26,13 @@ namespace CleanArchCqrs.Domain.Entities
 
         private void ValidateId(int id)
         {
-            DomainExceptionValidation.When(id < 0, "Id is invalid");
+            DomainException.When(id < 0, "Id is invalid");
         }
 
         private void ValidateName(string name)
         {
-            DomainExceptionValidation.When(string.IsNullOrEmpty(name), "Name is required");
-            DomainExceptionValidation.When(name.Length < 3, "Name is too short. Minimum 3 characters");
+            DomainException.When(string.IsNullOrEmpty(name), "Name is required");
+            DomainException.When(name.Length < 3, "Name is too short. Minimum 3 characters");
         }
     }
 }

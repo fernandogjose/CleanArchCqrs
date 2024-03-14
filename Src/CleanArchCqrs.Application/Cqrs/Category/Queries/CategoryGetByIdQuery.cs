@@ -3,7 +3,7 @@ using MediatR;
 
 namespace CleanArchCqrs.Application.Cqrs.Category.Queries
 {
-    public class CategoryGetByIdQuery : IRequest<CategoryDto>
+    public class CategoryGetByIdQuery : IRequest<Dtos.Category>
     {
         public int Id { get; private set; }
 

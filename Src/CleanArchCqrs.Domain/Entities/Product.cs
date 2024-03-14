@@ -1,4 +1,4 @@
-﻿using CleanArchCqrs.Domain.Validations;
+﻿using CleanArchCqrs.Domain.Exceptions;
 
 namespace CleanArchCqrs.Domain.Entities
 {
@@ -20,9 +20,6 @@ namespace CleanArchCqrs.Domain.Entities
 
         public Product(string name, string description, string image, decimal price, int stock, int categoryId)
         {
-            ValidateName(name);
-            ValidateCategoryId(categoryId);
-
             Name = name;
             Description = description;
             Image = image;
@@ -33,10 +30,6 @@ namespace CleanArchCqrs.Domain.Entities
 
         public Product(int id, string name, string description, string image, decimal price, int stock, int categoryId)
         {
-            ValidateId(id);
-            ValidateName(name);
-            ValidateCategoryId(categoryId);
-
             Id = id;
             Name = name;
             Description = description;
@@ -44,22 +37,6 @@ namespace CleanArchCqrs.Domain.Entities
             Price = price;
             Stock = stock;
             CategoryId = categoryId;
-        }
-
-        private void ValidateId(int id)
-        {
-            DomainExceptionValidation.When(id < 0, "Id is invalid");
-        }
-
-        private void ValidateName(string name)
-        {
-            DomainExceptionValidation.When(string.IsNullOrEmpty(name), "Name is required");
-            DomainExceptionValidation.When(name.Length < 3, "Name is too short. Minimum 3 characters");
-        }
-
-        private void ValidateCategoryId(int categoryId)
-        {
-            DomainExceptionValidation.When(categoryId < 0, "CategoryId is invalid");
         }
     }
 }

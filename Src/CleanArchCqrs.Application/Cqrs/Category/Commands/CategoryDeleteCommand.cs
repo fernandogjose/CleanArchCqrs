@@ -3,7 +3,7 @@ using MediatR;
 
 namespace CleanArchCqrs.Application.Cqrs.Category.Commands
 {
-    public class CategoryDeleteCommand : IRequest<CategoryDto>
+    public class CategoryDeleteCommand : IRequest<Dtos.Category>
     {
         public int Id { get; private set; }
     }

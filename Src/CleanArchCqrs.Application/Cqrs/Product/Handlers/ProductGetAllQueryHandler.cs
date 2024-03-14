@@ -6,7 +6,7 @@ using MediatR;
 
 namespace CleanArchCqrs.Application.Cqrs.Product.Handlers
 {
-    public class ProductGetAllQueryHandler : IRequestHandler<ProductGetAllQuery, IEnumerable<ProductDto>>
+    public class ProductGetAllQueryHandler : IRequestHandler<ProductGetAllQuery, IEnumerable<ProductGetAllResponse>>
     {
         private readonly IProductRepository _productRepository;
 
@@ -18,10 +18,10 @@ namespace CleanArchCqrs.Application.Cqrs.Product.Handlers
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<ProductDto>> Handle(ProductGetAllQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<Dtos.ProductGetAllResponse>> Handle(ProductGetAllQuery request, CancellationToken cancellationToken)
         {
             var productsEntityResponse = await _productRepository.GetAllAsync();
-            var productsDtoResponse = _mapper.Map<IEnumerable<ProductDto>>(productsEntityResponse);
+            var productsDtoResponse = _mapper.Map<IEnumerable<ProductGetAllResponse>>(productsEntityResponse);
             return productsDtoResponse;
         }
     }

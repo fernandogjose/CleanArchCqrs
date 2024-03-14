@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CleanArchCqrs.Application.Cqrs.Product.Commands;
 using CleanArchCqrs.Application.Cqrs.Product.Queries;
 using CleanArchCqrs.Application.Dtos;
 using MediatR;
@@ -20,8 +21,19 @@ namespace CleanArchCqrs.Api.Controllers
             _mapper = mapper;
         }
 
+        [HttpPost]
+        public async Task<ActionResult<ProductGetAllResponse>> Post([FromBody] ProductCreateRequest productCreateRequest)
+        {
+            var productCreateCommand = _mapper.Map<ProductCreateCommand>(productCreateRequest);
+            var productCreateResponse = await _mediator.Send(productCreateCommand);
+
+            return productCreateResponse == null
+                ? NotFound("Product not created")
+                : Created();
+        }
+
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProductDto>>> Get()
+        public async Task<ActionResult<IEnumerable<ProductGetAllResponse>>> Get()
         {
             var productGetAllQuery = new ProductGetAllQuery();
             var productsDtoResponse = await _mediator.Send(productGetAllQuery);
@@ -29,6 +41,17 @@ namespace CleanArchCqrs.Api.Controllers
             return productsDtoResponse == null || !productsDtoResponse.Any()
                 ? NotFound("Products not found")
                 : Ok(productsDtoResponse);
+        }
+
+        [HttpGet("id:int")]
+        public async Task<ActionResult<ProductGetByIdResponse>> Get([FromQuery] int id)
+        {
+            var productGetByIdQuery = new ProductGetByIdQuery(id);
+            var productDtoResponse = await _mediator.Send(productGetByIdQuery);
+
+            return productDtoResponse == null
+                ? NotFound("Product not found")
+                : Ok(productDtoResponse);
         }
     }
 }

@@ -11,15 +11,15 @@ namespace CleanArchCqrs.Application.Mappings
     {
         public DtoToCommandMappingProfile()
         {
-            CreateMap<ProductDto, ProductCreateCommand>();
-            CreateMap<ProductDto, ProductDeleteCommand>();
-            CreateMap<ProductDto, ProductUpdateCommand>();
-            CreateMap<ProductDto, ProductGetByIdQuery>();
+            CreateMap<ProductCreateRequest, ProductCreateCommand>().ReverseMap();
+            CreateMap<ProductGetAllResponse, ProductDeleteCommand>().ReverseMap();
+            CreateMap<ProductGetAllResponse, ProductUpdateCommand>().ReverseMap();
+            CreateMap<ProductGetAllResponse, ProductGetByIdQuery>().ReverseMap();
 
-            CreateMap<CategoryDto, CategoryCreateCommand>();
-            CreateMap<CategoryDto, CategoryDeleteCommand>();
-            CreateMap<CategoryDto, CategoryUpdateCommand>();
-            CreateMap<CategoryDto, CategoryGetByIdQuery>();
+            CreateMap<Category, CategoryCreateCommand>().ReverseMap();
+            CreateMap<Category, CategoryDeleteCommand>().ReverseMap();
+            CreateMap<Category, CategoryUpdateCommand>().ReverseMap();
+            CreateMap<Category, CategoryGetByIdQuery>().ReverseMap();
         }
     }
 }
