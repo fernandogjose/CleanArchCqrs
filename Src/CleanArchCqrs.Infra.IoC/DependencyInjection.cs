@@ -29,6 +29,7 @@ namespace CleanArchCqrs.Infra.IoC
 
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
+            services.AddAutoMapper(typeof(CommandToEntityMappingProfile));
             services.AddAutoMapper(typeof(DtoToCommandMappingProfile));
             services.AddAutoMapper(typeof(EntityToDtoMappingProfile));
 
