@@ -21,7 +21,7 @@ namespace CleanArchCqrs.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Category>>> Get()
+        public async Task<ActionResult<IEnumerable<CategoryGetAllResponse>>> Get()
         {
             var categoryGetAllQuery = new CategoryGetAllQuery();
             var categorysDtoResponse = await _mediator.Send(categoryGetAllQuery);
@@ -32,7 +32,7 @@ namespace CleanArchCqrs.Api.Controllers
         }
 
         [HttpGet("id:int")]
-        public async Task<ActionResult<IEnumerable<Category>>> Get([FromQuery] int id)
+        public async Task<ActionResult<IEnumerable<CategoryGetAllResponse>>> Get([FromQuery] int id)
         {
             var categoryGetByIdQuery = new CategoryGetByIdQuery(id);
             var categoryDtoResponse = await _mediator.Send(categoryGetByIdQuery);

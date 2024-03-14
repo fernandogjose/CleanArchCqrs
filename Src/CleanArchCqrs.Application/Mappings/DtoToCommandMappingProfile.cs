@@ -16,10 +16,10 @@ namespace CleanArchCqrs.Application.Mappings
             CreateMap<ProductGetAllResponse, ProductUpdateCommand>().ReverseMap();
             CreateMap<ProductGetAllResponse, ProductGetByIdQuery>().ReverseMap();
 
-            CreateMap<Category, CategoryCreateCommand>().ReverseMap();
-            CreateMap<Category, CategoryDeleteCommand>().ReverseMap();
-            CreateMap<Category, CategoryUpdateCommand>().ReverseMap();
-            CreateMap<Category, CategoryGetByIdQuery>().ReverseMap();
+            CreateMap<CategoryGetAllResponse, CategoryCreateCommand>().ReverseMap();
+            CreateMap<CategoryGetAllResponse, CategoryDeleteCommand>().ReverseMap();
+            CreateMap<CategoryGetAllResponse, CategoryUpdateCommand>().ReverseMap();
+            CreateMap<CategoryGetAllResponse, CategoryGetByIdQuery>().ReverseMap();
         }
     }
 }

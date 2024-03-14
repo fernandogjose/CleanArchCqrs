@@ -6,7 +6,7 @@ using MediatR;
 
 namespace CleanArchCqrs.Application.Cqrs.Category.Handlers
 {
-    public class CategoryGetByIdQueryHandler : IRequestHandler<CategoryGetByIdQuery, Dtos.Category>
+    public class CategoryGetByIdQueryHandler : IRequestHandler<CategoryGetByIdQuery, CategoryGetByIdResponse>
     {
         private readonly ICategoryRepository _categoryRepository;
 
@@ -18,11 +18,11 @@ namespace CleanArchCqrs.Application.Cqrs.Category.Handlers
             _mapper = mapper;
         }
 
-        public async Task<Dtos.Category> Handle(CategoryGetByIdQuery request, CancellationToken cancellationToken)
+        public async Task<CategoryGetByIdResponse> Handle(CategoryGetByIdQuery request, CancellationToken cancellationToken)
         {
             var categoryEntityResponse = await _categoryRepository.GetByIdAsync(request.Id);
-            var categoryDtoResponse = _mapper.Map<Dtos.Category>(categoryEntityResponse);
-            return categoryDtoResponse;
+            var categoryGetByIdResponse = _mapper.Map<CategoryGetByIdResponse>(categoryEntityResponse);
+            return categoryGetByIdResponse;
         }
     }
 }
