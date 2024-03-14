@@ -18,6 +18,11 @@ namespace CleanArchCqrs.Domain.Entities
 
         public Category Category { get; set; }
 
+        public Product(int id)
+        {
+            Id = id;
+        }
+
         public Product(string name, string description, string image, decimal price, int stock, int categoryId)
         {
             Name = name;

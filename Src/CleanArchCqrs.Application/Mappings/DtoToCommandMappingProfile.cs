@@ -10,6 +10,7 @@ namespace CleanArchCqrs.Application.Mappings
         {
             CreateMap<ProductCreateRequest, ProductCreateCommand>().ReverseMap();
             CreateMap<ProductUpdateRequest, ProductUpdateCommand>().ReverseMap();
+            CreateMap<ProductDeleteRequest, ProductDeleteCommand>().ReverseMap();
         }
     }
 }

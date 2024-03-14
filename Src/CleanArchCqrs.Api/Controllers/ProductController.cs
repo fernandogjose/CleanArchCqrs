@@ -32,6 +32,17 @@ namespace CleanArchCqrs.Api.Controllers
                 : Created();
         }
 
+        [HttpDelete]
+        public async Task<ActionResult<ProductGetAllResponse>> Delete([FromBody] ProductDeleteRequest productDeleteRequest)
+        {
+            var productDeleteCommand = _mapper.Map<ProductDeleteCommand>(productDeleteRequest);
+            var productDeleteResponse = await _mediator.Send(productDeleteCommand);
+
+            return productDeleteResponse == null
+                ? NotFound("Product not created")
+                : Created();
+        }
+
         [HttpPut]
         public async Task<ActionResult<ProductGetAllResponse>> Put([FromBody] ProductUpdateRequest productUpdateRequest)
         {

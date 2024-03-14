@@ -3,8 +3,13 @@ using MediatR;
 
 namespace CleanArchCqrs.Application.Cqrs.Product.Commands
 {
-    public class ProductDeleteCommand : IRequest<Dtos.ProductGetAllResponse>
+    public class ProductDeleteCommand : IRequest<ProductDeleteResponse>
     {
         public int Id { get; private set; }
+
+        public ProductDeleteCommand(int id)
+        {
+            Id = id;
+        }
     }
 }

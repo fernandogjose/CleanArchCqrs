@@ -9,6 +9,7 @@ namespace CleanArchCqrs.Application.Mappings
         {
             CreateMap<ProductCreateCommand, Domain.Entities.Product>().ReverseMap();
             CreateMap<ProductUpdateCommand, Domain.Entities.Product>().ReverseMap();
+            CreateMap<ProductDeleteCommand, Domain.Entities.Product>().ReverseMap();
         }
     }
 }
