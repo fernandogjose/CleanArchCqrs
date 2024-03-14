@@ -8,6 +8,7 @@ namespace CleanArchCqrs.Application.Mappings
         public CommandToEntityMappingProfile()
         {
             CreateMap<ProductCreateCommand, Domain.Entities.Product>().ReverseMap();
+            CreateMap<ProductUpdateCommand, Domain.Entities.Product>().ReverseMap();
         }
     }
 }

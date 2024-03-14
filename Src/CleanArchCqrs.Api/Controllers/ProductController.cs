@@ -32,6 +32,17 @@ namespace CleanArchCqrs.Api.Controllers
                 : Created();
         }
 
+        [HttpPut]
+        public async Task<ActionResult<ProductGetAllResponse>> Put([FromBody] ProductUpdateRequest productUpdateRequest)
+        {
+            var productUpdateCommand = _mapper.Map<ProductUpdateCommand>(productUpdateRequest);
+            var productUpdateResponse = await _mediator.Send(productUpdateCommand);
+
+            return productUpdateResponse == null
+                ? NotFound("Product not created")
+                : Created();
+        }
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductGetAllResponse>>> Get()
         {

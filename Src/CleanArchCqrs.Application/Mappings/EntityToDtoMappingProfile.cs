@@ -10,8 +10,10 @@ namespace CleanArchCqrs.Application.Mappings
             CreateMap<Domain.Entities.Product, ProductGetAllResponse>().ReverseMap();
             CreateMap<Domain.Entities.Product, ProductGetByIdResponse>().ReverseMap();
             CreateMap<Domain.Entities.Product, ProductCreateResponse>().ReverseMap();
+            CreateMap<Domain.Entities.Product, ProductUpdateResponse>().ReverseMap();
 
             CreateMap<Domain.Entities.Category, CategoryGetAllResponse>().ReverseMap();
+            CreateMap<Domain.Entities.Category, CategoryGetByIdResponse>().ReverseMap();
         }
     }
 }

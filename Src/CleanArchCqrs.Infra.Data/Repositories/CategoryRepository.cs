@@ -37,7 +37,7 @@ namespace CleanArchCqrs.Infra.Data.Repositories
 
         public async Task<Category> GetByIdAsync(int id)
         {
-            return await _applicationDbContext.Categories.FindAsync(id);
+            return await _applicationDbContext.Categories.AsNoTracking().FirstOrDefaultAsync(where => where.Id == id);
         }
 
         public async Task<IEnumerable<Category>> GetAllAsync()

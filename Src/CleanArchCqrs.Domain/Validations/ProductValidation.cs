@@ -25,19 +25,20 @@ namespace CleanArchCqrs.Domain.Validations
 
         public async Task ValidateUpdateAsync(Product product)
         {
-            ValidateId(product.Id);
+            await ValidateIdAsync(product.Id);
             ValidateName(product.Name);
             await ValidateCategoryIdAsync(product.CategoryId);
         }
 
-        public void ValidateDelete(Product product)
+        public async Task ValidateDeleteAsync(Product product)
         {
-            ValidateId(product.Id);
+            await ValidateIdAsync(product.Id);
         }
 
-        private void ValidateId(int id)
+        private async Task ValidateIdAsync(int id)
         {
             DomainException.When(id < 0, "Id is invalid");
+            DomainException.When(await _productRepository.GetByIdAsync(id) == null, "Product not found");
         }
 
         private void ValidateName(string name)

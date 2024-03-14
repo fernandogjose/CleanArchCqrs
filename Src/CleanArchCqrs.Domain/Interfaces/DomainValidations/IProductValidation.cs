@@ -7,5 +7,7 @@ namespace CleanArchCqrs.Domain.Interfaces.DomainValidations
         Task ValidateCreateAsync(Product product);
 
         Task ValidateUpdateAsync(Product product);
+
+        Task ValidateDeleteAsync(Product product);
     }
 }
