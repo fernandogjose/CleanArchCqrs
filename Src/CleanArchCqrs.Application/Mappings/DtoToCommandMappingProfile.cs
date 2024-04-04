@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CleanArchCqrs.Application.ComandsHandlers.Payment.Commands;
 using CleanArchCqrs.Application.ComandsHandlers.Product.Commands;
 using CleanArchCqrs.Application.Dtos;
 
@@ -11,6 +12,8 @@ namespace CleanArchCqrs.Application.Mappings
             CreateMap<ProductCreateRequest, ProductCreateCommand>().ReverseMap();
             CreateMap<ProductUpdateRequest, ProductUpdateCommand>().ReverseMap();
             CreateMap<ProductDeleteRequest, ProductDeleteCommand>().ReverseMap();
+
+            CreateMap<PaymentCreateRequest, PaymentCreateCommand>().ReverseMap();
         }
     }
 }

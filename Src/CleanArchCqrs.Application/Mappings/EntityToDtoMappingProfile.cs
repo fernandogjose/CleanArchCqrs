@@ -15,6 +15,9 @@ namespace CleanArchCqrs.Application.Mappings
 
             CreateMap<Domain.Entities.Category, CategoryGetAllResponse>().ReverseMap();
             CreateMap<Domain.Entities.Category, CategoryGetByIdResponse>().ReverseMap();
+
+            CreateMap<Domain.Entities.Payment, PaymentGetAllResponse>().ReverseMap();
+            CreateMap<Domain.Entities.Payment, PaymentCreateResponse>().ReverseMap();
         }
     }
 }

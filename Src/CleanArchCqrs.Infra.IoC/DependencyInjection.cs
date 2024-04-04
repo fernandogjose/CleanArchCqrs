@@ -21,7 +21,9 @@ namespace CleanArchCqrs.Infra.IoC
                 )
             );
 
+            services.AddScoped<IAgentRepository, AgentRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IPaymentRepository, PaymentRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
 
             return services;
@@ -42,6 +44,7 @@ namespace CleanArchCqrs.Infra.IoC
         public static IServiceCollection AddDomain(this IServiceCollection services)
         {
             services.AddScoped<IProductValidation, ProductValidation>();
+            services.AddScoped<IPaymentValidation, PaymentValidation>();
 
             return services;
         }
