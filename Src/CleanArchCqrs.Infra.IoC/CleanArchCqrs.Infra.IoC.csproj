@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CleanArchCqrs.Application\CleanArchCqrs.Application.csproj" />
     <ProjectReference Include="..\CleanArchCqrs.Infra.Data\CleanArchCqrs.Infra.Data.csproj" />
+    <ProjectReference Include="..\CleanArchCqrs.Infra.Sqs\CleanArchCqrs.Infra.Sqs.csproj" />
   </ItemGroup>
 
 </Project>
