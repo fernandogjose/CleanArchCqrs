@@ -24,56 +24,51 @@ namespace CleanArchCqrs.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<ProductGetAllResponse>> Post([FromBody] ProductCreateRequest productCreateRequest)
         {
-            var productCreateCommand = _mapper.Map<ProductCreateCommand>(productCreateRequest);
-            var productCreateResponse = await _mediator.Send(productCreateCommand);
+            var productCreateResponse = await _mediator.Send(_mapper.Map<ProductCreateCommand>(productCreateRequest));
 
             return productCreateResponse == null
                 ? NotFound("Product not created")
-                : Created();
+                : Ok(productCreateResponse);
         }
 
         [HttpDelete]
         public async Task<ActionResult<ProductGetAllResponse>> Delete([FromBody] ProductDeleteRequest productDeleteRequest)
         {
-            var productDeleteCommand = _mapper.Map<ProductDeleteCommand>(productDeleteRequest);
-            var productDeleteResponse = await _mediator.Send(productDeleteCommand);
+            var productDeleteResponse = await _mediator.Send(_mapper.Map<ProductDeleteCommand>(productDeleteRequest));
 
             return productDeleteResponse == null
                 ? NotFound("Product not created")
-                : Created();
+                : Ok(productDeleteResponse);
         }
 
         [HttpPut]
         public async Task<ActionResult<ProductGetAllResponse>> Put([FromBody] ProductUpdateRequest productUpdateRequest)
         {
-            var productUpdateCommand = _mapper.Map<ProductUpdateCommand>(productUpdateRequest);
-            var productUpdateResponse = await _mediator.Send(productUpdateCommand);
+            var productUpdateResponse = await _mediator.Send(_mapper.Map<ProductUpdateCommand>(productUpdateRequest));
 
             return productUpdateResponse == null
                 ? NotFound("Product not created")
-                : Created();
+                : Ok(productUpdateResponse);
         }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductGetAllResponse>>> Get()
         {
-            var productGetAllQuery = new ProductGetAllQuery();
-            var productsDtoResponse = await _mediator.Send(productGetAllQuery);
+            var productGetAllResponse = await _mediator.Send(new ProductGetAllQuery());
 
-            return productsDtoResponse == null || !productsDtoResponse.Any()
+            return productGetAllResponse == null || !productGetAllResponse.Any()
                 ? NotFound("Products not found")
-                : Ok(productsDtoResponse);
+                : Ok(productGetAllResponse);
         }
 
         [HttpGet("id:int")]
         public async Task<ActionResult<ProductGetByIdResponse>> Get([FromQuery] int id)
         {
-            var productGetByIdQuery = new ProductGetByIdQuery(id);
-            var productDtoResponse = await _mediator.Send(productGetByIdQuery);
+            var productGetByIdResponse = await _mediator.Send(new ProductGetByIdQuery(id));
 
-            return productDtoResponse == null
+            return productGetByIdResponse == null
                 ? NotFound("Product not found")
-                : Ok(productDtoResponse);
+                : Ok(productGetByIdResponse);
         }
     }
 }

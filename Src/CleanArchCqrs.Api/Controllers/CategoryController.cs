@@ -23,23 +23,21 @@ namespace CleanArchCqrs.Api.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CategoryGetAllResponse>>> Get()
         {
-            var categoryGetAllQuery = new CategoryGetAllQuery();
-            var categorysDtoResponse = await _mediator.Send(categoryGetAllQuery);
+            var categoryGetAllResponse = await _mediator.Send(new CategoryGetAllQuery());
 
-            return categorysDtoResponse == null || !categorysDtoResponse.Any()
+            return categoryGetAllResponse == null || !categoryGetAllResponse.Any()
                 ? NotFound("Categories not found")
-                : Ok(categorysDtoResponse);
+                : Ok(categoryGetAllResponse);
         }
 
         [HttpGet("id:int")]
         public async Task<ActionResult<IEnumerable<CategoryGetAllResponse>>> Get([FromQuery] int id)
         {
-            var categoryGetByIdQuery = new CategoryGetByIdQuery(id);
-            var categoryDtoResponse = await _mediator.Send(categoryGetByIdQuery);
+            var categoryGetByIdResponse = await _mediator.Send(new CategoryGetByIdQuery(id));
 
-            return categoryDtoResponse == null 
+            return categoryGetByIdResponse == null
                 ? NotFound("Category not found")
-                : Ok(categoryDtoResponse);
+                : Ok(categoryGetByIdResponse);
         }
     }
 }
