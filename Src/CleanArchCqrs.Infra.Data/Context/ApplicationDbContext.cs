@@ -5,12 +5,13 @@ namespace CleanArchCqrs.Infra.Data.Context
 {
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> dbContextOptions) : base(dbContextOptions)
-        {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> dbContextOptions) : base(dbContextOptions) { }
 
-        }
+        public DbSet<Agent> Agents { get; set; }
 
         public DbSet<Category> Categories { get; set; }
+
+        public DbSet<Payment> Payments { get; set; }
 
         public DbSet<Product> Products { get; set; }
 

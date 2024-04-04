@@ -1,4 +1,4 @@
-﻿using CleanArchCqrs.Domain.Exceptions;
+﻿using CleanArchCqrs.Domain.Enums;
 
 namespace CleanArchCqrs.Domain.Entities
 {
@@ -16,14 +16,18 @@ namespace CleanArchCqrs.Domain.Entities
 
         public int CategoryId { get; private set; }
 
+        public ProductTypeEnum Type { get; set; }
+
         public Category Category { get; set; }
+
+        public ICollection<Payment> Payments { get; set; }
 
         public Product(int id)
         {
             Id = id;
         }
 
-        public Product(string name, string description, string image, decimal price, int stock, int categoryId)
+        public Product(string name, string description, string image, decimal price, int stock, int categoryId, ProductTypeEnum type)
         {
             Name = name;
             Description = description;
@@ -31,9 +35,10 @@ namespace CleanArchCqrs.Domain.Entities
             Price = price;
             Stock = stock;
             CategoryId = categoryId;
+            Type = type;
         }
 
-        public Product(int id, string name, string description, string image, decimal price, int stock, int categoryId)
+        public Product(int id, string name, string description, string image, decimal price, int stock, int categoryId, ProductTypeEnum type)
         {
             Id = id;
             Name = name;
@@ -42,6 +47,7 @@ namespace CleanArchCqrs.Domain.Entities
             Price = price;
             Stock = stock;
             CategoryId = categoryId;
+            Type = type;
         }
     }
 }

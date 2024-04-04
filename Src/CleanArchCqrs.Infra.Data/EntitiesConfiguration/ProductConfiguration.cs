@@ -9,6 +9,7 @@ namespace CleanArchCqrs.Infra.Data.EntitiesConfiguration
         public void Configure(EntityTypeBuilder<Product> builder)
         {
             builder.HasKey(x => x.Id);
+            builder.Property(x => x.CreatedAt).IsRequired();
             builder.Property(x => x.Name).HasMaxLength(100).IsRequired();
             builder.Property(x => x.Description).HasMaxLength(256);
             builder.Property(x => x.Price).HasPrecision(10, 2);
