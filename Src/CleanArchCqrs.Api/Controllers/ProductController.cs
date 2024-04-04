@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using CleanArchCqrs.Application.Cqrs.Product.Commands;
-using CleanArchCqrs.Application.Cqrs.Product.Queries;
+using CleanArchCqrs.Application.ComandsHandlers.Product.Commands;
+using CleanArchCqrs.Application.ComandsHandlers.Product.Queries;
 using CleanArchCqrs.Application.Dtos;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using CleanArchCqrs.Application.Cqrs.Category.Queries;
+using CleanArchCqrs.Application.ComandsHandlers.Category.Queries;
 using CleanArchCqrs.Application.Dtos;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

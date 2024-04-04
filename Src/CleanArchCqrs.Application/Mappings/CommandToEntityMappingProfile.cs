@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using CleanArchCqrs.Application.Cqrs.Product.Commands;
+using CleanArchCqrs.Application.ComandsHandlers.Product.Commands;
 
 namespace CleanArchCqrs.Application.Mappings
 {
