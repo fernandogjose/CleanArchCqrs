@@ -8,6 +8,8 @@ namespace CleanArchCqrs.Domain.Entities
 
         public PaymentTypeEnum Type { get; private set; }
 
+        public PaymentStatusEnum Status { get; set; }
+
         public decimal Value { get; private set; }
 
         public int ProductId { get; private set; }
@@ -23,10 +25,11 @@ namespace CleanArchCqrs.Domain.Entities
             Id = id;
         }
 
-        public Payment(PaymentGoalEnum goal, PaymentTypeEnum type, decimal value, int productId, int agentId)
+        public Payment(PaymentGoalEnum goal, PaymentTypeEnum type, PaymentStatusEnum status, decimal value, int productId, int agentId)
         {
             Goal = goal;
             Type = type;
+            Status = status;
             Value = value;
             ProductId = productId;
             AgentId = agentId;

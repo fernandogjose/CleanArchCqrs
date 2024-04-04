@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CleanArchCqrs.Application.ComandsHandlers.Payment.Commands;
 using CleanArchCqrs.Application.ComandsHandlers.Product.Commands;
+using CleanArchCqrs.Domain.Enums;
 
 namespace CleanArchCqrs.Application.Mappings
 {
@@ -12,7 +13,8 @@ namespace CleanArchCqrs.Application.Mappings
             CreateMap<ProductUpdateCommand, Domain.Entities.Product>().ReverseMap();
             CreateMap<ProductDeleteCommand, Domain.Entities.Product>().ReverseMap();
 
-            CreateMap<PaymentCreateCommand, Domain.Entities.Payment>().ReverseMap();
+            CreateMap<PaymentCreateCommand, Domain.Entities.Payment>().ReverseMap()
+                .BeforeMap((src, dest) => src.Status = PaymentStatusEnum.Received);
         }
     }
 }

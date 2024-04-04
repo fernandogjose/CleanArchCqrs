@@ -6,4 +6,11 @@
         DebitCard = 1,
         Pix = 2
     }
+
+    public enum PaymentStatusEnum
+    {
+        Received = 0,
+        Failed = 1,
+        Succeeded = 2
+    }
 }

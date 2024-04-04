@@ -46,25 +46,25 @@ namespace CleanArchCqrs.Infra.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 4, 3, 22, 38, 18, 809, DateTimeKind.Local).AddTicks(5223),
+                            CreatedAt = new DateTime(2024, 4, 4, 10, 47, 18, 653, DateTimeKind.Local).AddTicks(7228),
                             Name = "Fernando José"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 4, 3, 22, 38, 18, 809, DateTimeKind.Local).AddTicks(5235),
+                            CreatedAt = new DateTime(2024, 4, 4, 10, 47, 18, 653, DateTimeKind.Local).AddTicks(7244),
                             Name = "Priscila Antunes"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 4, 3, 22, 38, 18, 809, DateTimeKind.Local).AddTicks(5236),
+                            CreatedAt = new DateTime(2024, 4, 4, 10, 47, 18, 653, DateTimeKind.Local).AddTicks(7245),
                             Name = "Gabriel Antunes"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2024, 4, 3, 22, 38, 18, 809, DateTimeKind.Local).AddTicks(5237),
+                            CreatedAt = new DateTime(2024, 4, 4, 10, 47, 18, 653, DateTimeKind.Local).AddTicks(7245),
                             Name = "Beatriz Antunes"
                         });
                 });
@@ -93,25 +93,25 @@ namespace CleanArchCqrs.Infra.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 4, 3, 22, 38, 18, 809, DateTimeKind.Local).AddTicks(6825),
+                            CreatedAt = new DateTime(2024, 4, 4, 10, 47, 18, 653, DateTimeKind.Local).AddTicks(9027),
                             Name = "Material Escolar"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 4, 3, 22, 38, 18, 809, DateTimeKind.Local).AddTicks(6830),
+                            CreatedAt = new DateTime(2024, 4, 4, 10, 47, 18, 653, DateTimeKind.Local).AddTicks(9032),
                             Name = "Eletrônicos"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 4, 3, 22, 38, 18, 809, DateTimeKind.Local).AddTicks(6831),
+                            CreatedAt = new DateTime(2024, 4, 4, 10, 47, 18, 653, DateTimeKind.Local).AddTicks(9033),
                             Name = "Acessórios"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2024, 4, 3, 22, 38, 18, 809, DateTimeKind.Local).AddTicks(6831),
+                            CreatedAt = new DateTime(2024, 4, 4, 10, 47, 18, 653, DateTimeKind.Local).AddTicks(9034),
                             Name = "Livros"
                         });
                 });
@@ -134,6 +134,9 @@ namespace CleanArchCqrs.Infra.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
                         .HasColumnType("int");
 
                     b.Property<int>("Type")
