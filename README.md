@@ -1,5 +1,5 @@
 ### Projeto
-**Desenvolvido por:** Fernando José
+**Desenvolvido por:** Fernando José <br />
 **Descrição:** <br />
 Projeto desenvolvido para atuar como processador de pagamentos. A ideia é receber uma solicitação de pagamento por meio de uma API Rest, que será publicada no SQS para que um consumidor possa processar o pagamento e aplicar as regras de negócio correspondentes.
 
