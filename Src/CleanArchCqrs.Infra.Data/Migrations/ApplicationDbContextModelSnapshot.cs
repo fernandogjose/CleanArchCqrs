@@ -33,6 +33,10 @@ namespace CleanArchCqrs.Infra.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -46,25 +50,29 @@ namespace CleanArchCqrs.Infra.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 4, 4, 10, 47, 18, 653, DateTimeKind.Local).AddTicks(7228),
+                            CreatedAt = new DateTime(2024, 4, 5, 14, 44, 6, 510, DateTimeKind.Local).AddTicks(7630),
+                            Email = "fernandogjose@gmail.com",
                             Name = "Fernando José"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 4, 4, 10, 47, 18, 653, DateTimeKind.Local).AddTicks(7244),
+                            CreatedAt = new DateTime(2024, 4, 5, 14, 44, 6, 510, DateTimeKind.Local).AddTicks(7646),
+                            Email = "priscilaantunes@gmail.com",
                             Name = "Priscila Antunes"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 4, 4, 10, 47, 18, 653, DateTimeKind.Local).AddTicks(7245),
+                            CreatedAt = new DateTime(2024, 4, 5, 14, 44, 6, 510, DateTimeKind.Local).AddTicks(7647),
+                            Email = "gabrielantunes@gmail.com",
                             Name = "Gabriel Antunes"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2024, 4, 4, 10, 47, 18, 653, DateTimeKind.Local).AddTicks(7245),
+                            CreatedAt = new DateTime(2024, 4, 5, 14, 44, 6, 510, DateTimeKind.Local).AddTicks(7648),
+                            Email = "beatrizantunes@gmail.com",
                             Name = "Beatriz Antunes"
                         });
                 });
@@ -93,25 +101,25 @@ namespace CleanArchCqrs.Infra.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2024, 4, 4, 10, 47, 18, 653, DateTimeKind.Local).AddTicks(9027),
+                            CreatedAt = new DateTime(2024, 4, 5, 14, 44, 6, 510, DateTimeKind.Local).AddTicks(9467),
                             Name = "Material Escolar"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2024, 4, 4, 10, 47, 18, 653, DateTimeKind.Local).AddTicks(9032),
+                            CreatedAt = new DateTime(2024, 4, 5, 14, 44, 6, 510, DateTimeKind.Local).AddTicks(9472),
                             Name = "Eletrônicos"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2024, 4, 4, 10, 47, 18, 653, DateTimeKind.Local).AddTicks(9033),
+                            CreatedAt = new DateTime(2024, 4, 5, 14, 44, 6, 510, DateTimeKind.Local).AddTicks(9472),
                             Name = "Acessórios"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2024, 4, 4, 10, 47, 18, 653, DateTimeKind.Local).AddTicks(9034),
+                            CreatedAt = new DateTime(2024, 4, 5, 14, 44, 6, 510, DateTimeKind.Local).AddTicks(9473),
                             Name = "Livros"
                         });
                 });
@@ -152,6 +160,38 @@ namespace CleanArchCqrs.Infra.Data.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("Payments");
+                });
+
+            modelBuilder.Entity("CleanArchCqrs.Domain.Entities.PaymentProcessed", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("Comission")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("PaymentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ResourcesToAdd")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShipmentsCreated")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PaymentId");
+
+                    b.ToTable("PaymentProcesseds");
                 });
 
             modelBuilder.Entity("CleanArchCqrs.Domain.Entities.Product", b =>
@@ -218,6 +258,17 @@ namespace CleanArchCqrs.Infra.Data.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("CleanArchCqrs.Domain.Entities.PaymentProcessed", b =>
+                {
+                    b.HasOne("CleanArchCqrs.Domain.Entities.Payment", "Payment")
+                        .WithMany("PaymentProcesseds")
+                        .HasForeignKey("PaymentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Payment");
+                });
+
             modelBuilder.Entity("CleanArchCqrs.Domain.Entities.Product", b =>
                 {
                     b.HasOne("CleanArchCqrs.Domain.Entities.Category", "Category")
@@ -237,6 +288,11 @@ namespace CleanArchCqrs.Infra.Data.Migrations
             modelBuilder.Entity("CleanArchCqrs.Domain.Entities.Category", b =>
                 {
                     b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("CleanArchCqrs.Domain.Entities.Payment", b =>
+                {
+                    b.Navigation("PaymentProcesseds");
                 });
 
             modelBuilder.Entity("CleanArchCqrs.Domain.Entities.Product", b =>

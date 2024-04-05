@@ -1,8 +1,12 @@
 ﻿using CleanArchCqrs.Application.Mappings;
+using CleanArchCqrs.Domain.Helpers;
 using CleanArchCqrs.Domain.Interfaces.DataRepositories;
+using CleanArchCqrs.Domain.Interfaces.DomainHelpers;
+using CleanArchCqrs.Domain.Interfaces.DomainStrategies;
 using CleanArchCqrs.Domain.Interfaces.DomainValidations;
 using CleanArchCqrs.Domain.Interfaces.Sqs.Factories;
 using CleanArchCqrs.Domain.Interfaces.Sqs.Services;
+using CleanArchCqrs.Domain.Strategies;
 using CleanArchCqrs.Domain.Validations;
 using CleanArchCqrs.Infra.Data.Context;
 using CleanArchCqrs.Infra.Data.Repositories;
@@ -28,6 +32,7 @@ namespace CleanArchCqrs.Infra.IoC
             services.AddScoped<IAgentRepository, AgentRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IPaymentRepository, PaymentRepository>();
+            services.AddScoped<IPaymentProcessedRepository, PaymentProcessedRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
 
             return services;
@@ -49,6 +54,14 @@ namespace CleanArchCqrs.Infra.IoC
         {
             services.AddScoped<IProductValidation, ProductValidation>();
             services.AddScoped<IPaymentValidation, PaymentValidation>();
+
+            services.AddScoped<IAgentCommissionHelper, AgentCommissionHelper>();
+            services.AddScoped<IPaymentGoalHelper, PaymentGoalHelper>();
+            services.AddScoped<IResourcesToAddHelper, ResourcesToAddHelper>();
+            services.AddScoped<IShipmentToCreateHelper, ShipmentToCreateHelper>();
+
+            services.AddScoped<IPaymentBusinessRuleStrategy, PaymentOnlineStrategy>();
+            services.AddScoped<IPaymentBusinessRuleStrategy, PaymentPysicalStrategy>();
 
             return services;
         }
