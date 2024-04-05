@@ -13,10 +13,10 @@ namespace CleanArchCqrs.Infra.Data.EntitiesConfiguration
             builder.Property(x => x.Name).HasMaxLength(100).IsRequired();
 
             builder.HasData(
-                new Agent(1, "Fernando José"),
-                new Agent(2, "Priscila Antunes"),
-                new Agent(3, "Gabriel Antunes"),
-                new Agent(4, "Beatriz Antunes"));
+                new Agent(1, "Fernando José", "fernandogjose@gmail.com"),
+                new Agent(2, "Priscila Antunes", "priscilaantunes@gmail.com"),
+                new Agent(3, "Gabriel Antunes", "gabrielantunes@gmail.com"),
+                new Agent(4, "Beatriz Antunes", "beatrizantunes@gmail.com"));
         }
     }
 }

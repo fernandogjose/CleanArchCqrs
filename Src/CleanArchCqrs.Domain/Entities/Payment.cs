@@ -20,6 +20,8 @@ namespace CleanArchCqrs.Domain.Entities
 
         public Agent Agent { get; set; }
 
+        public List<PaymentProcessed> PaymentProcesseds { get; set; }
+
         public Payment(int id)
         {
             Id = id;

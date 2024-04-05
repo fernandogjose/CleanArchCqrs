@@ -1,10 +1,8 @@
-﻿using Amazon.Runtime;
-using CleanArchCqrs.Application.Mappings;
+﻿using CleanArchCqrs.Application.Mappings;
 using CleanArchCqrs.Domain.Interfaces.DataRepositories;
 using CleanArchCqrs.Domain.Interfaces.DomainValidations;
 using CleanArchCqrs.Domain.Interfaces.Sqs.Factories;
 using CleanArchCqrs.Domain.Interfaces.Sqs.Services;
-using CleanArchCqrs.Domain.Options;
 using CleanArchCqrs.Domain.Validations;
 using CleanArchCqrs.Infra.Data.Context;
 using CleanArchCqrs.Infra.Data.Repositories;
@@ -13,7 +11,6 @@ using CleanArchCqrs.Infra.Sqs.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Identity.Client;
 
 namespace CleanArchCqrs.Infra.IoC
 {
@@ -58,12 +55,6 @@ namespace CleanArchCqrs.Infra.IoC
 
         public static IServiceCollection AddSqs(this IServiceCollection services, IConfiguration configuration)
         {
-            SqsOptions.SqsRegion = configuration.GetSection("SqsOptions:SqsRegion").Value;
-            SqsOptions.SqsQueueId = configuration.GetSection("SqsOptions:SqsQueueId").Value;
-            SqsOptions.SqsQueueName = configuration.GetSection("SqsOptions:SqsQueueName").Value;
-            SqsOptions.IamAccessKey = configuration.GetSection("SqsOptions:IamAccessKey").Value;
-            SqsOptions.IamSecretKey = configuration.GetSection("SqsOptions:IamSecretKey").Value;
-
             services.AddSingleton<ISqsClientFactory, SqsClientFactory>();
             services.AddSingleton<ISqsService, SqsService>();
 

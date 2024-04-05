@@ -1,6 +1,4 @@
-﻿using CleanArchCqrs.Domain.Exceptions;
-
-namespace CleanArchCqrs.Domain.Entities
+﻿namespace CleanArchCqrs.Domain.Entities
 {
     public sealed class Category : Base
     {

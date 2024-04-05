@@ -37,7 +37,12 @@ namespace CleanArchCqrs.Infra.Data.Repositories
 
         public async Task<Payment> GetByIdAsync(int id)
         {
-            return await _applicationDbContext.Payments.AsNoTracking().FirstOrDefaultAsync(where => where.Id == id);
+            return await _applicationDbContext
+                .Payments
+                .Include(p => p.Product)
+                .Include(p => p.Product).ThenInclude(p => p.Category)
+                .Include(p => p.Agent)
+                .FirstOrDefaultAsync(where => where.Id == id);
         }
 
         public async Task<IEnumerable<Payment>> GetAllAsync()

@@ -1,11 +1,11 @@
 ﻿namespace CleanArchCqrs.Domain.Options
 {
-    public static class SqsOptions
+    public class SqsOptions
     {
-        public static string SqsRegion { get; set; }
-        public static string SqsQueueId { get; set; }
-        public static string SqsQueueName { get; set; }
-        public static string IamAccessKey { get; set; }
-        public static string IamSecretKey { get; set; }
+        public string SqsRegion { get; set; }
+        public string SqsQueueId { get; set; }
+        public string SqsQueueName { get; set; }
+        public string IamAccessKey { get; set; }
+        public string IamSecretKey { get; set; }
     }
 }

@@ -13,6 +13,8 @@ namespace CleanArchCqrs.Infra.Data.Context
 
         public DbSet<Payment> Payments { get; set; }
 
+        public DbSet<PaymentProcessed> PaymentProcesseds { get; set; }
+
         public DbSet<Product> Products { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -1,3 +1,4 @@
+using CleanArchCqrs.Domain.Options;
 using CleanArchCqrs.Infra.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,9 @@ builder.Services.AddApplication();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Get options
+builder.Services.AddOptions<SqsOptions>().BindConfiguration("SqsOptions");
 
 var app = builder.Build();
 

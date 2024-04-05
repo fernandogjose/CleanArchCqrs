@@ -15,6 +15,8 @@ namespace CleanArchCqrs.Application.Mappings
 
             CreateMap<PaymentCreateCommand, Domain.Entities.Payment>().ReverseMap()
                 .BeforeMap((src, dest) => src.Status = PaymentStatusEnum.Received);
+
+            CreateMap<PaymentProcessCommand, Domain.Entities.Payment>().ReverseMap();
         }
     }
 }

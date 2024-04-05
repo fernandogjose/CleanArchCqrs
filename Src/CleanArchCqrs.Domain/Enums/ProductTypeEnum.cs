@@ -2,7 +2,7 @@
 {
     public enum ProductTypeEnum
     {
-        Pysical = 0,
+        Physical = 0,
         OnLine = 1
     }
 }
