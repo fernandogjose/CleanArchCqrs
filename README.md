@@ -1,6 +1,6 @@
 ### Projeto
-- **Desenvolvido por:** Fernando José
-- **Descrição:**<br>
+**Desenvolvido por:** Fernando José
+**Descrição:** <br />
 Projeto desenvolvido para atuar como processador de pagamentos. A ideia é receber uma solicitação de pagamento por meio de uma API Rest, que será publicada no SQS para que um consumidor possa processar o pagamento e aplicar as regras de negócio correspondentes.
 
 O desafio principal é criar um mecanismo de regras de negócio dinâmico, pois as regras tendem a mudar com frequência. O objetivo é minimizar ou eliminar completamente a necessidade de alterações no sistema para aplicar e implementar novas regras. Inicialmente, considerei a utilização de um arquivo JSON para armazenar todas as regras de negócio, com a possibilidade de, no futuro, permitir que os usuários criem e modifiquem essas regras por meio de um sistema próprio.
