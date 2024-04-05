@@ -92,9 +92,7 @@ public class Function
             context.Logger.LogInformation($"Processed message {message.Body}");
             var paymentProcessCommand = JsonConvert.DeserializeObject<PaymentProcessCommand>(message.Body);
             var paymentProcessResponse = await _mediator.Send(paymentProcessCommand);
-            
-            //TODO:: Pensar em um tratamento melhor, talvez publicar a mensagem em outra fila para ser processado por outro
-            //consumer quando for processado com falha
+
             if (paymentProcessResponse) context.Logger.LogInformation($"Payment processed with success: {message.Body}");
             else context.Logger.LogInformation($"Payment processed with failed: {message.Body}");
         }
