@@ -23,7 +23,6 @@ namespace CleanArchCqrs.Application.ComandsHandlers.Payment.Handlers
         private readonly IPaymentProcessedRepository _paymentProcessedRepository;
         private readonly ILogger<PaymentProcessCommandHandler> _logger;
 
-
         public PaymentProcessCommandHandler(
             IMapper mapper,
             ILogger<PaymentProcessCommandHandler> logger,
@@ -60,6 +59,7 @@ namespace CleanArchCqrs.Application.ComandsHandlers.Payment.Handlers
             {
                 var paymentBusinessRuleStrategy = GetPaymentBusinessRuleStrategy(request.Product.Type);
                 var businessRule = paymentBusinessRuleStrategy.GetBusinessRule();
+                
                 var shipmentsCreated = _shipmentToCreateHelper.Process(businessRule.ShipmentsToCreate, payment.Product.Category.Name);
                 var comission = _agentCommissionHelper.Process(businessRule.AgentCommissions, payment.Product.Category.Name, payment.Product.Price);
                 var resourcesToAdd = _resourcesToAddHelper.Process(businessRule.ResourcesToAdd, payment.Product.Name);
