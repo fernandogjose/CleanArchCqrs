@@ -1,6 +1,7 @@
 using Amazon.Lambda.Core;
 using Amazon.Lambda.SQSEvents;
 using CleanArchCqrs.Application.ComandsHandlers.Payment.Commands;
+using CleanArchCqrs.Application.Mappings;
 using CleanArchCqrs.Domain.Helpers;
 using CleanArchCqrs.Domain.Interfaces.DataRepositories;
 using CleanArchCqrs.Domain.Interfaces.DomainHelpers;
@@ -63,6 +64,10 @@ public class Function
         // application
         var handlers = AppDomain.CurrentDomain.Load("CleanArchCqrs.Application");
         serviceCollection.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(handlers));
+
+        serviceCollection.AddAutoMapper(typeof(CommandToEntityMappingProfile));
+        serviceCollection.AddAutoMapper(typeof(DtoToCommandMappingProfile));
+        serviceCollection.AddAutoMapper(typeof(EntityToDtoMappingProfile));
 
         // build
         var services = serviceCollection.BuildServiceProvider();

@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchCqrs.Infra.Sqs", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchCqrs.LambdaFunction", "Src\CleanArchCqrs.LambdaFunction\CleanArchCqrs.LambdaFunction.csproj", "{C412B18B-5003-4250-AFA4-C4E90EF38697}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchCqrs.UnitTest", "Src\CleanArchCqrs.UnitTest\CleanArchCqrs.UnitTest.csproj", "{E5A9B458-E1E4-4B63-AB67-F783B18E0A4F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{C412B18B-5003-4250-AFA4-C4E90EF38697}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C412B18B-5003-4250-AFA4-C4E90EF38697}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C412B18B-5003-4250-AFA4-C4E90EF38697}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5A9B458-E1E4-4B63-AB67-F783B18E0A4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5A9B458-E1E4-4B63-AB67-F783B18E0A4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5A9B458-E1E4-4B63-AB67-F783B18E0A4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5A9B458-E1E4-4B63-AB67-F783B18E0A4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

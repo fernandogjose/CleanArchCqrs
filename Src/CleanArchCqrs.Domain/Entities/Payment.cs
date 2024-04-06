@@ -22,13 +22,16 @@ namespace CleanArchCqrs.Domain.Entities
 
         public List<PaymentProcessed> PaymentProcesseds { get; set; }
 
-        public Payment(int id)
+        public Payment(
+            int id = 0,
+            PaymentGoalEnum goal = PaymentGoalEnum.Adhesion,
+            PaymentTypeEnum type = PaymentTypeEnum.Pix,
+            PaymentStatusEnum status = PaymentStatusEnum.Received,
+            decimal value = 0M,
+            int productId = 0,
+            int agentId = 0)
         {
             Id = id;
-        }
-
-        public Payment(PaymentGoalEnum goal, PaymentTypeEnum type, PaymentStatusEnum status, decimal value, int productId, int agentId)
-        {
             Goal = goal;
             Type = type;
             Status = status;

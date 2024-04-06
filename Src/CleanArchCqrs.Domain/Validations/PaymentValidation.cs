@@ -31,13 +31,13 @@ namespace CleanArchCqrs.Domain.Validations
 
         private async Task ValidateProductIdAsync(int productId)
         {
-            DomainException.When(productId < 0, "Product is invalid");
+            DomainException.When(productId <= 0, "Product is invalid");
             DomainException.When(await _productRepository.GetByIdAsync(productId) == null, "Product not found");
         }
 
         private async Task ValidateAgentIdAsync(int agentId)
         {
-            DomainException.When(agentId < 0, "Product is invalid");
+            DomainException.When(agentId <= 0, "Product is invalid");
             DomainException.When(await _agentRepository.GetByIdAsync(agentId) == null, "Agent not found");
         }
     }
