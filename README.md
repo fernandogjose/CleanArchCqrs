@@ -65,6 +65,13 @@ Configuração necessária antes de iniciar
 - dotnet build
 - dotnet test
 
+#### Docker
+- Abrir o terminal 
+- Acessar a pasta onde está o projeto
+- Acessar a pasta .\Src\CleanArchCqrs.Api
+- docker-compose up
+- dotnet ef database update (caso não subo o banco no docker-compose ou depois de alguma alteração no banco de dados "code first")
+
 ### Desenhos do fluxo da API e do Consumer (Lambda Function)
 ![Fluxo - Api - Gravar uma intenção de pagamento](https://github.com/fernandogjose/CleanArchCqrs/blob/main/Files/Architecture/api-gravar-inten%C3%A7%C3%A3o-de-pagamento.jpg)
 ![Fluxo - Api - Consultar o resultado do processamento do pagamento](https://github.com/fernandogjose/CleanArchCqrs/blob/main/Files/Architecture/api-consultar-o-resultado-do-pagamento-da-api.jpg)
