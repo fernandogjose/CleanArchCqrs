@@ -39,9 +39,8 @@ Configuração necessária antes de iniciar
 
 #### Subir a aplicação no Docker
 - Abrir o terminal 
-- Acessar a pasta onde está o docker-compose
-- Acessar a pasta .\Src
-- docker-compose up --build
+- Acessar a pasta .\Src, onde está o docker-compose
+- executar o comando: docker-compose up --build
 
 #### SqlServer (para subir sem o docker)
 - Criar um banco de dados a sua escolha (usei CleanArchCqrs)
@@ -79,7 +78,7 @@ Configuração necessária antes de iniciar
 ### Desenho da arquitetura da solução
 ![Arquitetura da solução](https://github.com/fernandogjose/CleanArchCqrs/blob/main/Files/Architecture/arquitetura-de-solucao.jpg)
 
-### Evidencia da aplicação rodando no Docker
+### Evidência da aplicação rodando no Docker
 ![Api](https://github.com/fernandogjose/CleanArchCqrs/blob/main/Files/Docker/docker-swagger.png)
 ![Containers](https://github.com/fernandogjose/CleanArchCqrs/blob/main/Files/Docker/docker-containers.png)
 ![DataBase](https://github.com/fernandogjose/CleanArchCqrs/blob/main/Files/Docker/docker-database.png)
