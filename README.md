@@ -37,11 +37,17 @@ Embora a primeira abordagem seja utilizar um arquivo JSON, estou aberto a consid
 ### Configuração Inicial
 Configuração necessária antes de iniciar
 
-#### SqlServer
+#### Subir a aplicação no Docker
+- Abrir o terminal 
+- Acessar a pasta onde está o docker-compose
+- Acessar a pasta .\Src
+- docker-compose up --build
+
+#### SqlServer (para subir sem o docker)
 - Criar um banco de dados a sua escolha (usei CleanArchCqrs)
 - Executar o comando "update-database"
 
-#### BackEnd
+#### BackEnd (para subir sem o docker)
 - Alterar a connection string no arquivo appsettings.json com a conn que estiver usando
 
 ### Configuração
@@ -65,13 +71,6 @@ Configuração necessária antes de iniciar
 - dotnet build
 - dotnet test
 
-#### Docker
-- Abrir o terminal 
-- Acessar a pasta onde está o projeto
-- Acessar a pasta .\Src\CleanArchCqrs.Api
-- docker-compose up
-- dotnet ef database update (caso não subo o banco no docker-compose ou depois de alguma alteração no banco de dados "code first")
-
 ### Desenhos do fluxo da API e do Consumer (Lambda Function)
 ![Fluxo - Api - Gravar uma intenção de pagamento](https://github.com/fernandogjose/CleanArchCqrs/blob/main/Files/Architecture/api-gravar-inten%C3%A7%C3%A3o-de-pagamento.jpg)
 ![Fluxo - Api - Consultar o resultado do processamento do pagamento](https://github.com/fernandogjose/CleanArchCqrs/blob/main/Files/Architecture/api-consultar-o-resultado-do-pagamento-da-api.jpg)
@@ -79,3 +78,8 @@ Configuração necessária antes de iniciar
 
 ### Desenho da arquitetura da solução
 ![Arquitetura da solução](https://github.com/fernandogjose/CleanArchCqrs/blob/main/Files/Architecture/arquitetura-de-solucao.jpg)
+
+### Evidencia da aplicação rodando no Docker
+![Api](https://github.com/fernandogjose/CleanArchCqrs/blob/main/Files/Docker/docker-swagger.png)
+![Containers](https://github.com/fernandogjose/CleanArchCqrs/blob/main/Files/Docker/docker-containers.png)
+![DataBase](https://github.com/fernandogjose/CleanArchCqrs/blob/main/Files/Docker/docker-database.png)

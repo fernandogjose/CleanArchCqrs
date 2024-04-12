@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  migrations:
+    container_name: service-migrations
+    image: service-migrations
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: migrations
+    depends_on:
+        - sqldata
+        - cleanarchcqrsapi
+
+  cleanarchcqrsapi:
+    container_name: cleanarchcqrs-api
+    image: cleanarchcqrsapi
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - sqldata
+  
+  sqldata:
+    container_name: sqldata
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - SA_PASSWORD=Fernando@2024
+      - ACCEPT_EULA=Y
+    ports:
+      - "1433:1433"
+
+  lambda:
+    container_name: cleanarchcqrs-lambda
+    image: cleanarchcqrslambda
+    build:
+      context: .
+      dockerfile: DockerfileLambda
+    ports:
+      - "5050:5050"
