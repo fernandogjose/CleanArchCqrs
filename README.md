@@ -16,7 +16,11 @@ Embora a primeira abordagem seja utilizar um arquivo JSON, estou aberto a consid
 - Pattern Decorate (implementação futura)
 - Pattern Repository 
 
-#### BackEnd
+#### Frontend
+- React
+- React-Redux
+
+#### Backend
 - .Net 8
 - Lambda Function
 - Swagger
