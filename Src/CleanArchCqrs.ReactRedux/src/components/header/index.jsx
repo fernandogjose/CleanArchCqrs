@@ -10,7 +10,7 @@ function Header() {
   const { currentUser } = useSelector((rootReducer) => rootReducer.userReducer);
   const productsCount = useSelector(selectProductsCount);
   const dispatch = useDispatch();
-
+  
   const handleCartClick = () => {
     setCartIsVisible(true);
   };
