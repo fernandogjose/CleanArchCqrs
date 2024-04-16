@@ -5,7 +5,17 @@ export const cartProductAdd = (payload) => ({
     payload: payload
 });
 
-export const cartProductRemove = (payload) => ({
-    type: CartActionTypes.PRODUCT_REMOVE,
+export const cartProductRemoveAll = (payload) => ({
+    type: CartActionTypes.PRODUCT_REMOVE_ALL,
+    payload: payload
+});
+
+export const cartProductDecrease = (payload) => ({
+    type: CartActionTypes.PRODUCT_DECREASE,
+    payload: payload
+});
+
+export const cartProductIncrease = (payload) => ({
+    type: CartActionTypes.PRODUCT_INCREASE,
     payload: payload
 });
