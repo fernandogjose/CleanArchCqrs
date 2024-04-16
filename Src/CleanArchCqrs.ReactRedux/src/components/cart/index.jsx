@@ -1,5 +1,3 @@
-// Styles
-import rootReducer from "../../redux/root-reducer";
 import * as Styles from "./styles";
 import { useSelector } from "react-redux";
 import CartItem from "../cart-item/index"
