@@ -4,8 +4,6 @@ import CustomButton from "../custom-button/index";
 import * as Styles from "./styles";
 import { cartProductAdd } from "../../redux/cart/slice";
 
-// Utilities
-
 const ProductItem = ({ product }) => {
     const dispacth = useDispatch();
     const handleProductClick = () => {
