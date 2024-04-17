@@ -8,14 +8,14 @@ const cartReducer = (state = initialState, action) => {
     switch (action.type) {
         case CartActionTypes.PRODUCT_ADD:
             const productIsAlreadyInCart = state.products.some(
-                (product) => product.id == action.payload.id
+                (product) => product.id === action.payload.id
             );
 
             if (productIsAlreadyInCart) {
                 return {
                     ...state,
                     products: state.products.map(
-                        (product) => product.id == action.payload.id
+                        (product) => product.id === action.payload.id
                             ? { ...product, quantity: product.quantity + 1 }
                             : product
                     )
@@ -31,7 +31,7 @@ const cartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 products: state.products.filter(
-                    (product) => product.id != action.payload
+                    (product) => product.id !== action.payload
                 )
             };
 
@@ -40,7 +40,7 @@ const cartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 products: state.products.map(
-                    (product) => product.id == action.payload
+                    (product) => product.id = action.payload
                         ? { ...product, quantity: product.quantity - 1 }
                         : product
                 ).filter((product) => product.quantity > 0)
@@ -50,7 +50,7 @@ const cartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 products: state.products.map(
-                    (product) => product.id == action.payload
+                    (product) => product.id === action.payload
                         ? { ...product, quantity: product.quantity + 1 }
                         : product
                 )
